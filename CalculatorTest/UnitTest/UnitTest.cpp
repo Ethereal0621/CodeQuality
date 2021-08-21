@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "C:\Users\14831\Desktop\CalculatorTest\Calculator\Calculator.h" //在别的电脑运行要该处修改地址 同时要修改UnitTest-属性-链接器-输入-附加依赖项 将obj文件修改为对应地址
+#include "C:\Users\86156\Desktop\CodeQuality\CalculatorTest\Calculator\Calculator.h" 
+//在其它电脑运行需要修改此处地址(即Calculator待测试项目中的Calculator.h头文件路径
+//同时修改测试项目UnitTest-属性-链接器-输入-附加依赖项 将被测试项目中Debug文件夹中的Calculator.obj文件修改为对应地址
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
