@@ -16,7 +16,9 @@ Calculator::Calculator(QWidget *parent)
     resize(300,400);
 
     hide();
-
+  /**
+   * 设置六个case中的参数对应六种图形.
+   */
     connect(ui->square,&QAction::triggered,this,[=]()
         {
             hide();
@@ -58,7 +60,9 @@ Calculator::Calculator(QWidget *parent)
             ellipseShow();
             graphicsFlag=6;
         });
-
+    /**
+     * 设置单位选择参数.
+     */
     connect(ui->icm,&QAction::triggered,this,[=]()
         {
             inputUnitFlag=1;
@@ -121,7 +125,9 @@ Calculator::Calculator(QWidget *parent)
         });
 
 }
-
+/**
+ * 正方形显示函数.
+ */
 void Calculator::squareShow()
 {
     ui->label->setText("正方形");
@@ -143,7 +149,9 @@ void Calculator::squareShow()
 
     ui->calculator->show();
 }
-
+/**
+ * 圆形显示函数.
+ */
 void Calculator::circleShow()
 {
     ui->label->setText("圆形");
@@ -165,7 +173,9 @@ void Calculator::circleShow()
 
     ui->calculator->show();
 }
-
+/**
+ * 长方形显示函数.
+ */
 void Calculator::rectangleShow()
 {
     ui->label->setText("长方形");
@@ -187,7 +197,9 @@ void Calculator::rectangleShow()
 
     ui->calculator->show();
 }
-
+/**
+ * 三角形显示函数.
+ */
 void Calculator::triangleShow()
 {
     ui->label->setText("三角形");
@@ -209,7 +221,9 @@ void Calculator::triangleShow()
 
     ui->calculator->show();
 }
-
+/**
+ * 平行四边形显示函数.
+ */
 void Calculator::parallelogramShow()
 {
     ui->label->setText("平行四边形");
@@ -231,7 +245,9 @@ void Calculator::parallelogramShow()
 
     ui->calculator->show();
 }
-
+/**
+ * 椭圆显示函数.
+ */
 void Calculator::ellipseShow()
 {
     ui->label->setText("椭圆");
@@ -274,21 +290,41 @@ double Calculator::resultCalculator(int graphicsFlag, double value1, double valu
 {
     switch (graphicsFlag)
     {
+        /**
+         * 正方形面积.
+         */
     case 1:
         return value1 * value1;
+        /**
+         * 圆面积.
+         */
     case 2:
         return 3.1415926535 * value1 * value1;
+        /**
+         * 长方形面积.
+         */
     case 3:
         return value1 * value2;
+        /**
+         * 三角形面积.
+         */
     case 4:
         return 0.5 * value1 * value2;
+        /**
+         * 平行四边形面积.
+         */
     case 5:
         return value1 * value2;
+        /**
+         * 椭圆面积.
+         */
     case 6:
         return 3.1415926535 * value1 * value2;
     }
 }
-
+/**
+ * 单位转化.
+ */
 double Calculator::resultUnitTransform(int inputUnitFlag, int outputUnitFlag, double calculator)
 {
     if (inputUnitFlag == 1 && outputUnitFlag == 1)
