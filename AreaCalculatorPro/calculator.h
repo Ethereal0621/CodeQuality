@@ -20,7 +20,8 @@ public:
     void triangleShow();
     void parallelogramShow();
     void hide();
-    void calculator();
+    double resultCalculator(int graphicsFlag, double value1 ,double value2);
+    double resultUnitTransform(int inputUnitFlag, int outputUnitFlag, double caclulator);
     ~Calculator();
 
 private:
