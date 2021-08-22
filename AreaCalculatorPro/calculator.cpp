@@ -1,15 +1,37 @@
+/*****************************************************************//**
+ * @file   calculator.cpp
+ * @brief  通用面积计算器窗口显示及计算内核函数
+ * @version   1.0
+ * @author 所以爱会消失对不队
+ * @date   August 2021
+ *********************************************************************/
 #include "calculator.h"
 #include "ui_calculator.h"
 #include <cmath>
 #include <QMessageBox>
 
-extern int graphicsFlag=1;
-extern int inputUnitFlag=1;
-extern int outputUnitFlag=1;
 /// <summary>
-/// 
+/// 整型全局变量
+/// 标志待计算图形类型
 /// </summary>
-/// <param name="parent"></param>
+extern int graphicsFlag=1;
+
+/// <summary>
+/// 整型全局变量
+/// 标志输入单位类型
+/// </summary>
+extern int inputUnitFlag=1;
+
+/// <summary>
+/// 整型全局变量
+/// 标志输出单位类型
+/// </summary>
+extern int outputUnitFlag=1;
+
+/**
+ * @brief 构造函数
+ * @details 初始化、信号与槽的连接
+ */
 Calculator::Calculator(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Calculator)
@@ -17,7 +39,6 @@ Calculator::Calculator(QWidget *parent)
     ui->setupUi(this);
 
     resize(300,400);
-
     hide();
 
     connect(ui->square,&QAction::triggered,this,[=]()
@@ -125,7 +146,8 @@ Calculator::Calculator(QWidget *parent)
 
 }
 /// <summary>
-/// 正方形交互操作界面的显示
+/// @brief 正方形界面显示函数
+/// @details 显示计算正方形面积的GUI界面
 /// </summary>
 void Calculator::squareShow()
 {
@@ -148,8 +170,10 @@ void Calculator::squareShow()
 
     ui->calculator->show();
 }
+
 /// <summary>
-/// 圆形交互操作界面的显示
+/// @brief 圆形界面显示函数
+/// @details 显示计算圆形面积的GUI界面
 /// </summary>
 void Calculator::circleShow()
 {
@@ -172,8 +196,10 @@ void Calculator::circleShow()
 
     ui->calculator->show();
 }
+
 /// <summary>
-/// 长方形交互操作界面的显示
+/// @brief 长方形界面显示函数
+/// @details 显示计算长方形面积的GUI界面
 /// </summary>
 void Calculator::rectangleShow()
 {
@@ -196,8 +222,10 @@ void Calculator::rectangleShow()
 
     ui->calculator->show();
 }
+
 /// <summary>
-/// 三角形交互操作界面的显示
+/// @brief 三角形界面显示函数
+/// @details 显示计算三角形面积的GUI界面
 /// </summary>
 void Calculator::triangleShow()
 {
@@ -220,8 +248,10 @@ void Calculator::triangleShow()
 
     ui->calculator->show();
 }
+
 /// <summary>
-/// 平行四边形交互操作界面的显示
+/// @brief 平行四边形界面显示函数
+/// @details 显示计算平行四边形面积的GUI界面
 /// </summary>
 void Calculator::parallelogramShow()
 {
@@ -244,8 +274,10 @@ void Calculator::parallelogramShow()
 
     ui->calculator->show();
 }
+
 /// <summary>
-/// 椭圆形交互操作界面的显示
+/// @brief 椭圆界面显示函数
+/// @details 显示计算椭圆面积的GUI界面
 /// </summary>
 void Calculator::ellipseShow()
 {
@@ -268,8 +300,10 @@ void Calculator::ellipseShow()
 
     ui->calculator->show();
 }
+
 /// <summary>
-/// 
+/// @brief 界面初始化函数
+/// @details 初始化计算窗口，隐藏所有用于计算图形面积的控件
 /// </summary>
 void Calculator::hide()
 {
@@ -286,62 +320,42 @@ void Calculator::hide()
 
     ui->calculator->hide();
 }
+
 /// <summary>
-/// 定义计算结果类
+/// @brief 图形面积计算函数
+/// @details 在不考虑输入输出单位的情况下计算不同图形的图形面积
+/// @param graphicsFlag 待计算图形类型
+/// @param value1 由输入框获取的第一个双精度浮点型数据
+/// @param value2 由输入框获取的第一个双精度浮点型数据
+/// @return 返回图形面积
 /// </summary>
-/// <param name="graphicsFlag">整数</param>
-/// <param name="value1">双精度实型数</param>
-/// <param name="value2">双精度实型数</param>
-/// <returns>返回各种选项的计算结果</returns>
 double Calculator::resultCalculator(int graphicsFlag, double value1, double value2)
 {
     switch (graphicsFlag)
     {
-    /// <summary>
-    /// 正方形
-    /// </summary>
-    /// <returns>正方形面积计算公式</returns>
     case 1:
         return value1 * value1;
-    /// <summary>
-    /// 圆形
-    /// </summary>
-    /// <returns>圆形面积计算公式</returns>
     case 2:
         return 3.1415926535 * value1 * value1;
-    /// <summary>
-    /// 长方形
-    /// </summary>
-    /// <returns>长方形面积计算公式</returns>
     case 3:
         return value1 * value2;
-    /// <summary>
-    /// 三角形
-    /// </summary>
-    /// <returns>三角形面积计算公式</returns>
     case 4:
         return 0.5 * value1 * value2;
-    /// <summary>
-    /// 平行四边形
-    /// </summary>
-    /// <returns>平行四边形面积计算公式</returns>
     case 5:
         return value1 * value2;
-    /// <summary>
-    /// 椭圆形
-    /// </summary>
-    /// <returns>椭圆形面积计算公式</returns>
     case 6:
         return 3.1415926535 * value1 * value2;
     }
 }
+
 /// <summary>
-/// 单位转化类
+/// @brief 单位转换函数
+/// @details 根据输入和输出单位进行转换以获得正确结果
+/// @param inputUnitFlag 输入单位类型
+/// @param outputUnitFlag 输出单位类型
+/// @param calculator 图形面积计算函数返回的计算结果
+/// @return 返回正确的图形面积
 /// </summary>
-/// <param name="inputUnitFlag">整数</param>
-/// <param name="outputUnitFlag">整数</param>
-/// <param name="calculator">双精度实型数</param>
-/// <returns>单位转化后的面积值</returns>
 double Calculator::resultUnitTransform(int inputUnitFlag, int outputUnitFlag, double calculator)
 {
     if (inputUnitFlag == 1 && outputUnitFlag == 1)
@@ -356,8 +370,10 @@ double Calculator::resultUnitTransform(int inputUnitFlag, int outputUnitFlag, do
     else if (inputUnitFlag == 2 && outputUnitFlag == 2)
         return calculator;
 }
+
 /// <summary>
-/// 释放内存
+/// @brief 析构函数
+/// @details 释放类的对象
 /// </summary>
 Calculator::~Calculator()
 {
