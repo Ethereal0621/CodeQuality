@@ -6,7 +6,10 @@
 extern int graphicsFlag=1;
 extern int inputUnitFlag=1;
 extern int outputUnitFlag=1;
-
+/// <summary>
+/// 
+/// </summary>
+/// <param name="parent"></param>
 Calculator::Calculator(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Calculator)
@@ -16,9 +19,7 @@ Calculator::Calculator(QWidget *parent)
     resize(300,400);
 
     hide();
-  /**
-   * 设置六个case中的参数对应六种图形.
-   */
+
     connect(ui->square,&QAction::triggered,this,[=]()
         {
             hide();
@@ -60,9 +61,7 @@ Calculator::Calculator(QWidget *parent)
             ellipseShow();
             graphicsFlag=6;
         });
-    /**
-     * 设置单位选择参数.
-     */
+   
     connect(ui->icm,&QAction::triggered,this,[=]()
         {
             inputUnitFlag=1;
@@ -125,9 +124,9 @@ Calculator::Calculator(QWidget *parent)
         });
 
 }
-/**
- * 正方形显示函数.
- */
+/// <summary>
+/// 正方形交互操作界面的显示
+/// </summary>
 void Calculator::squareShow()
 {
     ui->label->setText("正方形");
@@ -149,9 +148,9 @@ void Calculator::squareShow()
 
     ui->calculator->show();
 }
-/**
- * 圆形显示函数.
- */
+/// <summary>
+/// 圆形交互操作界面的显示
+/// </summary>
 void Calculator::circleShow()
 {
     ui->label->setText("圆形");
@@ -173,9 +172,9 @@ void Calculator::circleShow()
 
     ui->calculator->show();
 }
-/**
- * 长方形显示函数.
- */
+/// <summary>
+/// 长方形交互操作界面的显示
+/// </summary>
 void Calculator::rectangleShow()
 {
     ui->label->setText("长方形");
@@ -197,9 +196,9 @@ void Calculator::rectangleShow()
 
     ui->calculator->show();
 }
-/**
- * 三角形显示函数.
- */
+/// <summary>
+/// 三角形交互操作界面的显示
+/// </summary>
 void Calculator::triangleShow()
 {
     ui->label->setText("三角形");
@@ -221,9 +220,9 @@ void Calculator::triangleShow()
 
     ui->calculator->show();
 }
-/**
- * 平行四边形显示函数.
- */
+/// <summary>
+/// 平行四边形交互操作界面的显示
+/// </summary>
 void Calculator::parallelogramShow()
 {
     ui->label->setText("平行四边形");
@@ -245,9 +244,9 @@ void Calculator::parallelogramShow()
 
     ui->calculator->show();
 }
-/**
- * 椭圆显示函数.
- */
+/// <summary>
+/// 椭圆形交互操作界面的显示
+/// </summary>
 void Calculator::ellipseShow()
 {
     ui->label->setText("椭圆");
@@ -269,7 +268,9 @@ void Calculator::ellipseShow()
 
     ui->calculator->show();
 }
-
+/// <summary>
+/// 
+/// </summary>
 void Calculator::hide()
 {
     ui->label->hide();
@@ -285,46 +286,62 @@ void Calculator::hide()
 
     ui->calculator->hide();
 }
-
+/// <summary>
+/// 定义计算结果类
+/// </summary>
+/// <param name="graphicsFlag">整数</param>
+/// <param name="value1">双精度实型数</param>
+/// <param name="value2">双精度实型数</param>
+/// <returns>返回各种选项的计算结果</returns>
 double Calculator::resultCalculator(int graphicsFlag, double value1, double value2)
 {
     switch (graphicsFlag)
     {
-        /**
-         * 正方形面积.
-         */
+    /// <summary>
+    /// 正方形
+    /// </summary>
+    /// <returns>正方形面积计算公式</returns>
     case 1:
         return value1 * value1;
-        /**
-         * 圆面积.
-         */
+    /// <summary>
+    /// 圆形
+    /// </summary>
+    /// <returns>圆形面积计算公式</returns>
     case 2:
         return 3.1415926535 * value1 * value1;
-        /**
-         * 长方形面积.
-         */
+    /// <summary>
+    /// 长方形
+    /// </summary>
+    /// <returns>长方形面积计算公式</returns>
     case 3:
         return value1 * value2;
-        /**
-         * 三角形面积.
-         */
+    /// <summary>
+    /// 三角形
+    /// </summary>
+    /// <returns>三角形面积计算公式</returns>
     case 4:
         return 0.5 * value1 * value2;
-        /**
-         * 平行四边形面积.
-         */
+    /// <summary>
+    /// 平行四边形
+    /// </summary>
+    /// <returns>平行四边形面积计算公式</returns>
     case 5:
         return value1 * value2;
-        /**
-         * 椭圆面积.
-         */
+    /// <summary>
+    /// 椭圆形
+    /// </summary>
+    /// <returns>椭圆形面积计算公式</returns>
     case 6:
         return 3.1415926535 * value1 * value2;
     }
 }
-/**
- * 单位转化.
- */
+/// <summary>
+/// 单位转化类
+/// </summary>
+/// <param name="inputUnitFlag">整数</param>
+/// <param name="outputUnitFlag">整数</param>
+/// <param name="calculator">双精度实型数</param>
+/// <returns>单位转化后的面积值</returns>
 double Calculator::resultUnitTransform(int inputUnitFlag, int outputUnitFlag, double calculator)
 {
     if (inputUnitFlag == 1 && outputUnitFlag == 1)
@@ -339,7 +356,9 @@ double Calculator::resultUnitTransform(int inputUnitFlag, int outputUnitFlag, do
     else if (inputUnitFlag == 2 && outputUnitFlag == 2)
         return calculator;
 }
-
+/// <summary>
+/// 释放内存
+/// </summary>
 Calculator::~Calculator()
 {
     delete ui;
