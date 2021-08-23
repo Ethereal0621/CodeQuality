@@ -30,44 +30,55 @@ QT_BEGIN_NAMESPACE
 class Ui_Calculator
 {
 public:
-    QAction *square;
-    QAction *actioncfx;
-    QAction *circle;
-    QAction *rectangle;
-    QAction *triangle;
-    QAction *icm;
-    QAction *iinches;
-    QAction *information;
-    QAction *parallelogram;
-    QAction *ocm;
-    QAction *oinches;
-    QAction *version;
-    QAction *term;
-    QAction *state;
-    QAction *ellipse;
-    QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
-    QVBoxLayout *verticalLayout_2;
-    QSpacerItem *verticalSpacer_7;
-    QLabel *label;
-    QSpacerItem *verticalSpacer_4;
-    QVBoxLayout *verticalLayout;
-    QLineEdit *value1;
-    QSpacerItem *verticalSpacer_3;
-    QLineEdit *value2;
-    QSpacerItem *verticalSpacer_5;
-    QLineEdit *result;
-    QSpacerItem *verticalSpacer_6;
-    QPushButton *calculator;
-    QSpacerItem *verticalSpacer;
-    QSpacerItem *horizontalSpacer_2;
-    QMenuBar *menubar;
-    QMenu *graphics;
-    QMenu *inputunit;
-    QMenu *menu;
-    QMenu *outputunit;
-    QStatusBar *statusbar;
+
+    QMenuBar* menubar;     ///<指向窗口菜单栏的指针
+    QMenu* graphics;       ///<指向菜单项-图形的指针
+    QMenu* inputunit;      ///<指向菜单项-输入单位的指针
+    QMenu* outputunit;     ///<指向菜单项-输出单位的指针
+    QMenu* menu;           ///<指向菜单项-关于的指针
+
+    QStatusBar* statusbar; ///<指向窗口状态栏的指针
+
+    QAction *square;       ///<指向"图形-正方形"菜单子项的指针   
+    QAction *circle;       ///<指向"图形-圆形"菜单子项的指针
+    QAction *rectangle;    ///<指向"图形-长方形"菜单子项的指针
+    QAction *triangle;     ///<指向"图形-三角形"菜单子项的指针
+    QAction* parallelogram;///<指向"图形-平行四边形"菜单子项的指针
+    QAction* ellipse;      ///<指向"图形-椭圆"菜单子项的指针
+
+    QAction* actioncfx;    ///<界面控件-"分隔线"
+
+    QAction *icm;          ///<指向"输入单位-厘米"菜单子项的指针
+    QAction *iinches;      ///<指向"输入单位-英寸"菜单子项的指针
+    QAction* ocm;          ///<指向"输出单位-厘米"菜单子项的指针
+    QAction* oinches;      ///<指向"输出单位-英寸"菜单子项的指针
+
+    QAction *information;  ///<指向"关于-信息"菜单子项的指针      
+    QAction *version;      ///<指向"关于-版本"菜单子项的指针
+    QAction *term;         ///<指向"关于-团队"菜单子项的指针
+    QAction *state;        ///<指向"关于-说明"菜单子项的指针
+
+    QLabel* label;         ///<指向图形标签的指针
+
+    QLineEdit* value1;     ///<指向第一个数值输入框的指针
+    QLineEdit* value2;     ///<指向第二个数值输入框的指针
+    QLineEdit* result;     ///<指向结果输出框的指针
+
+    QPushButton* calculator;         ///<指向计算结果按钮的指针 
+    
+    QWidget *centralwidget;          ///<窗口布局控件，仅在ui界面中使用
+    QHBoxLayout *horizontalLayout;   ///<窗口布局控件，仅在ui界面中使用
+    QSpacerItem *horizontalSpacer;   ///<窗口布局控件，仅在ui界面中使用
+    QVBoxLayout *verticalLayout_2;   ///<窗口布局控件，仅在ui界面中使用
+    QSpacerItem *verticalSpacer_7;   ///<窗口布局控件，仅在ui界面中使用
+    QSpacerItem *verticalSpacer_4;   ///<窗口布局控件，仅在ui界面中使用
+    QVBoxLayout *verticalLayout;     ///<窗口布局控件，仅在ui界面中使用
+    QSpacerItem *verticalSpacer_3;   ///<窗口布局控件，仅在ui界面中使用 
+    QSpacerItem *verticalSpacer_5;   ///<窗口布局控件，仅在ui界面中使用
+    QSpacerItem *verticalSpacer_6;   ///<窗口布局控件，仅在ui界面中使用
+    QSpacerItem *verticalSpacer;     ///<窗口布局控件，仅在ui界面中使用
+    QSpacerItem *horizontalSpacer_2; ///<窗口布局控件，仅在ui界面中使用
+    
 
     void setupUi(QMainWindow *Calculator)
     {
